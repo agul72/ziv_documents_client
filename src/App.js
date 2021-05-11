@@ -5,11 +5,12 @@ import {List} from "./components/List";
 function App() {
 
     const [docs, setDocs] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     return (
         <div className="container mt-5">
-            <Form setDocs={setDocs}/>
-            <List docs={docs}/>
+            <Form setDocs={setDocs} setLoading={setLoading}/>
+            <List docs={docs} loading={loading}/>
         </div>
     );
 }

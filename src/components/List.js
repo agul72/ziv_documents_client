@@ -5,13 +5,13 @@ import arrayMove from 'array-move';
 import Row from "./Row";
 import {Thead} from "./Thead";
 
-const TableBodySortable = SortableContainer(({ children }) => (
-    <tbody >
-        {children}
+const TableBodySortable = SortableContainer(({children}) => (
+    <tbody>
+    {children}
     </tbody>
 ));
 
-export function List({docs}) {
+export function List({docs, loading}) {
 
     const [items, setItems] = useState(docs);
 
@@ -24,10 +24,10 @@ export function List({docs}) {
     };
 
     return (
-        <div >
-            {!!items.length && <table className="table text-center">
+        <div>
+            {!!items && !!items.length && <table className="table text-center">
                 <thead>
-                    <Thead />
+                <Thead/>
                 </thead>
                 <TableBodySortable onSortEnd={onSortEnd} useDragHandle
                                    displayRowCheckbox={false}>
